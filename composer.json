@@ -1,0 +1,20 @@
+{
+    "name": "libretrix/bitrix-migration",
+    "type": "library",
+    "require": {
+        "php": ">=8.4"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Libretrix\\Component\\Migration\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Libretrix\\Component\\Migration\\Tests\\": "tests/"
+        }
+    },
+    "version": "0.0.1"
+}

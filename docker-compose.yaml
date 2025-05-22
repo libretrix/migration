@@ -1,0 +1,11 @@
+services:
+  php-backend:
+    build: docker/php
+    container_name: php-backend
+    working_dir: /var/www/html
+    user: www
+    restart: always
+    volumes:
+      - .:/var/www/html
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
