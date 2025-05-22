@@ -4,5 +4,6 @@
 .phpunit.result.cache
 
 vendor
+/var/
 bin
 .composer
