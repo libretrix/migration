@@ -45,6 +45,7 @@ RUN apk update && apk add \
         php84-zip \
         php84-zlib
 
+RUN ln -s /usr/bin/php84 /usr/bin/php
 RUN rm -f /var/cache/apk/*
 
 COPY php-fpm.conf /etc/php84/php-fpm.d/www.conf
@@ -59,4 +60,8 @@ ARG GID=1000
 
 RUN addgroup -g $GID -S $UNAME && adduser -u $UID -S -G $UNAME -s /bin/bash $UNAME
 
+EXPOSE 9000
+
 USER www
+
+CMD ["php-fpm", "--nodaemonize"]
