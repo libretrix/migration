@@ -6,21 +6,30 @@ namespace Libretrix\Component\Migration\Application;
 
 // ->string()->requred()->build()
 
+use InvalidArgumentException;
 use Libretrix\Component\Migration\Core\Model\Property\Bool\BoolPropertyInterface;
 use Libretrix\Component\Migration\Core\Model\Property\Int\IntPropertyInterface;
 use Libretrix\Component\Migration\Core\Model\Property\String\StringPropertyInterface;
 
 interface PropertyBuilderInterface
 {
-    public function value(): void;
 
-    public function required(): void;
+    public function code(string $code): self;
 
-    public function string(): void;
+    public function value(bool|int|string $value): self;
 
-    public function int(): void;
+    public function required(): self;
 
-    public function bool(): void;
 
+    public function string(): self;
+
+    public function int(): self;
+
+
+    public function bool(): self;
+
+    /**
+     * @throws InvalidArgumentException Если тип свойства не указан или неверный
+     */
     public function build(): BoolPropertyInterface|IntPropertyInterface|StringPropertyInterface;
 }
