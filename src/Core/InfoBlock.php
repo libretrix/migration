@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Libretrix\Component\Migration\Core;
 
 use Libretrix\Component\Migration\Core\Model\Field\FieldInterface;
-use Libretrix\Component\Migration\Core\Model\Property\PropertyInterface;
+use Libretrix\Component\Migration\Core\Model\Property\Base\PropertyInterface;
 
 final class InfoBlock
 {

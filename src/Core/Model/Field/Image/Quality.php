@@ -9,6 +9,5 @@ final class Quality
     public function __construct(
         public string $method = 'resample',
         public int $compression = 95
-    ) {
-    }
+    ) {}
 }
