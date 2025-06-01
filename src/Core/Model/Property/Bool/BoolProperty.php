@@ -4,26 +4,11 @@ declare(strict_types=1);
 
 namespace Libretrix\Component\Migration\Core\Model\Property\Bool;
 
-class BoolProperty implements BoolPropertyInterface
+use Libretrix\Component\Migration\Core\Model\RequirementsInterface;
+
+final readonly class BoolProperty implements BoolPropertyInterface
 {
     public function __construct(
-        public string $code,
-        public bool $value,
-        public bool $required
+        public RequirementsInterface $requirements,
     ) {}
-
-    public function getCode(): string
-    {
-        return $this->code;
-    }
-
-    public function getValue(): bool
-    {
-        return $this->value;
-    }
-
-    public function getRequired(): bool
-    {
-        return $this->required;
-    }
 }

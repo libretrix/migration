@@ -4,13 +4,6 @@ declare(strict_types=1);
 
 namespace Libretrix\Component\Migration\Core\Model\Field;
 
-interface FieldInterface
-{
-    public string $code {
-        get;
-    }
+use Libretrix\Component\Migration\Core\Model\RequirementsAwareInterface;
 
-    public bool $isRequired {
-        get;
-    }
-}
+interface FieldInterface extends RequirementsAwareInterface {}

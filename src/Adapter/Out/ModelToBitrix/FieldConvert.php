@@ -34,7 +34,7 @@ final readonly class FieldConvert
         }
 
         return [
-            'IS_REQUIRED' => (string) new BitrixBoolConvert($this->field->isRequired),
+            'IS_REQUIRED' => (string) new BitrixBoolConvert($this->field->requirements->isRequired),
             'DEFAULT_VALUE' => $defaultValue,
         ];
     }

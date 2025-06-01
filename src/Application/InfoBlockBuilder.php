@@ -4,46 +4,57 @@ declare(strict_types=1);
 
 namespace Libretrix\Component\Migration\Application;
 
-use Libretrix\Component\Migration\Core\Model\Field\FieldInterface;
-use Libretrix\Component\Migration\Core\Model\Property\Base\PropertyInterface;
+use Libretrix\Component\Migration\Core\Model\Field\Image\PreviewImage;
+use Libretrix\Component\Migration\Core\Model\Field\Image\Quality;
+use Libretrix\Component\Migration\Core\Model\Field\Image\Size;
+use Libretrix\Component\Migration\Core\Model\InfoBlock;
+use Libretrix\Component\Migration\Core\Model\Property\Bool\BoolProperty;
+use Libretrix\Component\Migration\Core\Model\Property\Int\IntProperty;
+use Libretrix\Component\Migration\Core\Model\Property\String\StringProperty;
+use Libretrix\Component\Migration\Core\Model\Requirements;
 
 final class InfoBlockBuilder
 {
-    public function setField(FieldInterface $field): self
-    {
-        return $this;
-    }
-
-    public function addProperty(PropertyInterface $field): self
-    {
-        return $this;
-    }
-
     public function build(): void
     {
-        $builder = new Builder();
+        $block = new InfoBlock();
 
-        $boolProperty = new BoolProperty();
-        $boolProperty = new StringProperty();
-        $boolProperty = new MuilipleProperty();
-
-        $iblock = new Iblock();
-
-        $iblock
-            ->addType(new Type())
-            ->addField()
-            ->addPrperty(new BoolProperty())
-            ->addPrperty(new StringProperty())
-            ->addPrperty(new MuilipleProperty())
-            ->addTab()
-            ->view()
-        ;
-
-        $builder
-            ->createInfoBlock()
-            ->createProperty()->string()->requred()->build()
-            ->createProperty()->bool()->requred()->build()
-            ->createProperty()->multiple()->requred()->build()
+        $block
+            ->addProperty(
+                new BoolProperty(
+                    new Requirements(
+                        'test-code',
+                        true
+                    ),
+                )
+            )
+            ->addProperty(
+                new StringProperty(
+                    new Requirements(
+                        'test-code',
+                        true
+                    ),
+                )
+            )
+            ->addProperty(
+                new IntProperty(
+                    new Requirements(
+                        'test-code',
+                        true
+                    ),
+                )
+            )
+            ->setField(
+                new PreviewImage(
+                    requirements: new Requirements(
+                        'test-code',
+                        true
+                    ),
+                    size: new Size(),
+                    quality: new Quality(),
+                    ignoreErrors: true
+                )
+            )
         ;
     }
 }
